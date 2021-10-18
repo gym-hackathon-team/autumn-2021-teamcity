@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  teamcity:
+    image: jetbrains/teamcity-server
+    environment:
+      - TEAMCITY_SERVER_MEM_OPTS="-Xmx1024m"
+    volumes:
+      - teamcity-data:/data/teamcity_server/datadir
+      - teamcity-logs:/opt/teamcity/logs
+      - teamcity-conf:/opt/teamcity/conf
+    ports:
+      - "8111:8111"
+
+volumes:
+  teamcity-data:
+  teamcity-logs:
+  teamcity-conf:
