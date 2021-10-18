@@ -1,5 +1,16 @@
 version: '3.7'
 services:
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=teamcity_password
+      - POSTGRES_USER=teamcity_user
+      - POSTGRES_DB=teamcity_db
+      - PG_DATA=/var/lib/postgresql/data
+    volumes:
+      - postgresql-data:/var/lib/postgresql/data
+
   teamcity:
     image: jetbrains/teamcity-server
     environment:
@@ -10,8 +21,11 @@ services:
       - teamcity-conf:/opt/teamcity/conf
     ports:
       - "8111:8111"
+    depends_on:
+      - db
 
 volumes:
+  postgresql-data:
   teamcity-data:
   teamcity-logs:
   teamcity-conf:
