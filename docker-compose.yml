@@ -1,0 +1,49 @@
+version: '3.7'
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=teamcity_password
+      - POSTGRES_USER=teamcity_user
+      - POSTGRES_DB=teamcity_db
+      - PG_DATA=/var/lib/postgresql/data
+    volumes:
+      - postgresql-data:/var/lib/postgresql/data
+
+  teamcity:
+    image: jetbrains/teamcity-server
+    environment:
+      - TEAMCITY_SERVER_MEM_OPTS="-Xmx1024m" # "-Xmx350m -XX:MaxPermSize=270m -XX:ReservedCodeCacheSize=350m"
+      - TEAMCITY_HTTPS_PROXY_ENABLED=true
+    volumes:
+      - teamcity-data:/data/teamcity_server/datadir
+      - teamcity-logs:/opt/teamcity/logs
+      - teamcity-conf:/opt/teamcity/conf
+    depends_on:
+      - db
+
+  nginx:
+    depends_on:
+      - teamcity
+    image: nginx
+    volumes:
+      - type: bind
+        source: ./nginx.conf
+        target: /etc/nginx/nginx.conf
+        read_only: true
+      - type: bind
+        source: ./certs/
+        target: /certs
+        read_only: true
+    ports:
+      - "443:443"
+
+volumes:
+  postgresql-data:
+  teamcity-data:
+  teamcity-logs:
+  teamcity-conf:
+  agent-1-config:
+  agent-1-work:
+  agent-1-system:
