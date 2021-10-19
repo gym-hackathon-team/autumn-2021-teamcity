@@ -6,7 +6,7 @@ fi
 
 if [ ! -a ssl/ssl.crt ] || [ ! -a ssl/ssl.key ] ; then
   rm -f ssl/ssl.crt ssl/ssl.key
-  openssl req -newkey rsa:4096 -x509 -sha256 -days 3650 -nodes -out ssl/ssl.crt -keyout ssl.key -batch
+  openssl req -newkey rsa:4096 -x509 -sha256 -days 3650 -nodes -out ssl/ssl.crt -keyout ssl/ssl.key -batch
 fi
 
 if [ ! -a ssl/dhparam.pem ] ; then
