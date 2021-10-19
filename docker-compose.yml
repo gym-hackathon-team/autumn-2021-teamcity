@@ -39,6 +39,21 @@ services:
     ports:
       - "443:443"
 
+  teamcity-build-agent:
+    image: jetbrains/teamcity-agent
+    user: "1000:${GID}"
+    environment:
+      - TEAMCITY_AGENT_MEM_OPTS=-Xmx512M
+      - SERVER_URL=teamcity:8111
+    volumes:
+      - agent-1-config:/data/teamcity_agent/conf
+      - agent-1-work:/opt/buildagent/work
+      - agent-1-system:/opt/buildagent/system
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+        read_only: true
+
 volumes:
   postgresql-data:
   teamcity-data:
