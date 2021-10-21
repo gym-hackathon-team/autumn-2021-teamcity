@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ ! -d ssl ] ; then
-  mkdir ssl || return 1
+  mkdir ssl || exit 1
 fi
 
 if [ ! -e ssl/ssl.crt ] || [ ! -e ssl/ssl.key ] ; then
@@ -14,4 +14,4 @@ if [ ! -e ssl/dhparam.pem ] ; then
 fi
 
 GID="$(cut -d: -f3 < <(getent group docker))"
-GID=${GID} docker-compose up -d || return 2
+GID=${GID} docker-compose up -d || exit 2
