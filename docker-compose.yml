@@ -40,7 +40,7 @@ services:
       - "443:443"
 
   teamcity-build-agent:
-    image: jastenewname/android-build-agent
+    image: jastenewname/flutter-build-agent
     user: "1000:${GID}"
     environment:
       - TEAMCITY_AGENT_MEM_OPTS=-Xmx512M
