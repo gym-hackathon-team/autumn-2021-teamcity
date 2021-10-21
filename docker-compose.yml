@@ -14,7 +14,7 @@ services:
   teamcity:
     image: jetbrains/teamcity-server
     environment:
-      - TEAMCITY_SERVER_MEM_OPTS="-Xmx1024m" # "-Xmx350m -XX:MaxPermSize=270m -XX:ReservedCodeCacheSize=350m"
+      - TEAMCITY_SERVER_MEM_OPTS=-Xmx1024M # "-Xmx350m -XX:MaxPermSize=270m -XX:ReservedCodeCacheSize=350m"
       - TEAMCITY_HTTPS_PROXY_ENABLED=true
     volumes:
       - teamcity-data:/data/teamcity_server/datadir
@@ -33,14 +33,14 @@ services:
         target: /etc/nginx/nginx.conf
         read_only: true
       - type: bind
-        source: ./ssl/
+        source: ./ssl
         target: /ssl
         read_only: true
     ports:
       - "443:443"
 
   teamcity-build-agent:
-    image: jetbrains/teamcity-agent
+    image: jastenewname/android-build-agent
     user: "1000:${GID}"
     environment:
       - TEAMCITY_AGENT_MEM_OPTS=-Xmx512M
