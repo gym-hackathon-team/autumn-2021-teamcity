@@ -279,6 +279,15 @@ object Autumn2021Backend_Deploy : BuildType({
 
     steps {
         step {
+            name = "Update configs"
+            type = "ssh-exec-runner"
+            param("jetbrains.buildServer.deployer.username", "root")
+            param("jetbrains.buildServer.sshexec.command", "cd")
+            param("jetbrains.buildServer.deployer.targetUrl", "5.63.154.19")
+            param("secure:jetbrains.buildServer.deployer.password", "credentialsJSON:ab3f9123-62ae-46d5-9bad-32848580053b")
+            param("jetbrains.buildServer.sshexec.authMethod", "PWD")
+        }
+        step {
             name = "Send docker-compose"
             type = "ssh-deploy-runner"
             param("jetbrains.buildServer.deployer.username", "root")
@@ -301,15 +310,6 @@ object Autumn2021Backend_Deploy : BuildType({
                 ./start.sh || exit 2
                 docker image prune -f
             """.trimIndent())
-            param("jetbrains.buildServer.deployer.targetUrl", "5.63.154.19")
-            param("secure:jetbrains.buildServer.deployer.password", "credentialsJSON:ab3f9123-62ae-46d5-9bad-32848580053b")
-            param("jetbrains.buildServer.sshexec.authMethod", "PWD")
-        }
-        step {
-            name = "Update configs"
-            type = "ssh-exec-runner"
-            param("jetbrains.buildServer.deployer.username", "root")
-            param("jetbrains.buildServer.sshexec.command", "cd")
             param("jetbrains.buildServer.deployer.targetUrl", "5.63.154.19")
             param("secure:jetbrains.buildServer.deployer.password", "credentialsJSON:ab3f9123-62ae-46d5-9bad-32848580053b")
             param("jetbrains.buildServer.sshexec.authMethod", "PWD")
