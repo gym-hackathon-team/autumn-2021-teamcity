@@ -153,46 +153,9 @@ object Autumn2021Backend : Project({
     vcsRoot(Autumn2021Backend_HttpsGithubComGymHackathonTeamAutumn2021backendRefsHeadsDev)
 
     buildType(Autumn2021Backend_Deploy)
-    buildType(Autumn2021Backend_BuildAdmin)
     buildType(Autumn2021Backend_BuildBff)
     buildType(Autumn2021Backend_BuildUser)
     buildType(Autumn2021Backend_BuildAuth)
-})
-
-object Autumn2021Backend_BuildAdmin : BuildType({
-    name = "Build Admin"
-
-    vcs {
-        root(Autumn2021Backend_HttpsGithubComGymHackathonTeamAutumn2021backendRefsHeadsDev, "admin/")
-    }
-
-    steps {
-        dockerCommand {
-            name = "Build Admin"
-            commandType = build {
-                source = file {
-                    path = "admin/Dockerfile"
-                }
-                contextDir = "admin"
-                namesAndTags = "jastenewname/gym-admin-service"
-                commandArgs = "--pull"
-            }
-        }
-        dockerCommand {
-            name = "Push Admin"
-            commandType = push {
-                namesAndTags = "jastenewname/gym-admin-service"
-            }
-        }
-    }
-
-    features {
-        dockerSupport {
-            loginToRegistry = on {
-                dockerRegistryId = "PROJECT_EXT_2"
-            }
-        }
-    }
 })
 
 object Autumn2021Backend_BuildAuth : BuildType({
