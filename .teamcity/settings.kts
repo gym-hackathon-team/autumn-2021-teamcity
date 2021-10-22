@@ -46,7 +46,7 @@ project {
             name = "Docker Registry"
             url = "https://docker.io"
             userName = "jastenewname"
-            password = "credentialsJSON:1bbaa972-976d-411a-9b13-39a66d3dbeb1"
+            password = "credentialsJSON:eaba873d-78c0-4749-a8b5-8b4394e99b67"
         }
     }
 
