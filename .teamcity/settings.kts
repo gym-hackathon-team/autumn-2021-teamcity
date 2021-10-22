@@ -83,7 +83,7 @@ object Autumn2021AndroidBaseApp_Build : BuildType({
     steps {
         gradle {
             name = "Build APK"
-            tasks = "clean assembleDebug"
+            tasks = "clean assembleRelease"
         }
     }
 })
