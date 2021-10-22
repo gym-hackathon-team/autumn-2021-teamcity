@@ -291,17 +291,19 @@ object Autumn2021Backend_Deploy : BuildType({
             param("jetbrains.buildServer.sshexec.authMethod", "PWD")
         }
         step {
-            name = "Send docker-compose"
-            type = "ssh-deploy-runner"
+            name = "Restart services (1)"
+            type = "ssh-exec-runner"
             param("jetbrains.buildServer.deployer.username", "root")
-            param("jetbrains.buildServer.deployer.sourcePath", """
-                docker-compose.dev.yml
-                .env.example
+            param("jetbrains.buildServer.sshexec.command", """
+                cd /root/autumn-2021-backend-launcher/
+                docker-compose -f docker-compose.dev.yml down --remove-orphans
+                ./update.sh || exit 1
+                ./start.sh || exit 2
+                docker image prune -f
             """.trimIndent())
-            param("jetbrains.buildServer.deployer.targetUrl", "5.63.154.19:/root/autumn-2021-backend-launcher/tmp")
+            param("jetbrains.buildServer.deployer.targetUrl", "5.63.154.19")
             param("secure:jetbrains.buildServer.deployer.password", "credentialsJSON:ab3f9123-62ae-46d5-9bad-32848580053b")
             param("jetbrains.buildServer.sshexec.authMethod", "PWD")
-            param("jetbrains.buildServer.deployer.ssh.transport", "jetbrains.buildServer.deployer.ssh.transport.scp")
         }
         step {
             name = "Restart services"
