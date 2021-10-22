@@ -298,7 +298,7 @@ object Autumn2021Backend_Deploy : BuildType({
                 docker-compose.dev.yml
                 .env.example
             """.trimIndent())
-            param("jetbrains.buildServer.deployer.targetUrl", "5.63.154.19:/root/autumn-2021-backend-launcher/tmp")
+            param("jetbrains.buildServer.deployer.targetUrl", "5.63.154.19:/root/autumn-2021-backend-launcher/update")
             param("secure:jetbrains.buildServer.deployer.password", "credentialsJSON:ab3f9123-62ae-46d5-9bad-32848580053b")
             param("jetbrains.buildServer.sshexec.authMethod", "PWD")
             param("jetbrains.buildServer.deployer.ssh.transport", "jetbrains.buildServer.deployer.ssh.transport.scp")
