@@ -156,6 +156,7 @@ object Autumn2021Backend : Project({
     buildType(Autumn2021Backend_BuildAdmin)
     buildType(Autumn2021Backend_BuildBff)
     buildType(Autumn2021Backend_BuildUser)
+    buildType(Autumn2021Backend_BuildAuth)
 })
 
 object Autumn2021Backend_BuildAdmin : BuildType({
@@ -192,6 +193,10 @@ object Autumn2021Backend_BuildAdmin : BuildType({
             }
         }
     }
+})
+
+object Autumn2021Backend_BuildAuth : BuildType({
+    name = "Build Auth"
 })
 
 object Autumn2021Backend_BuildBff : BuildType({
