@@ -324,7 +324,7 @@ object Autumn2021Backend_Deploy : BuildType({
                 git pull
             """.trimIndent())
             param("jetbrains.buildServer.deployer.targetUrl", "5.63.154.19")
-            param("secure:jetbrains.buildServer.deployer.password", "credentialsJSON:ab3f9123-62ae-46d5-9bad-32848580053b")
+            param("secure:jetbrains.buildServer.deployer.password", "credentialsJSON:79af9490-7b13-4f2b-bbb4-0303b290b5a1")
             param("jetbrains.buildServer.sshexec.authMethod", "PWD")
         }
         step {
