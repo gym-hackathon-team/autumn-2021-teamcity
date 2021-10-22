@@ -310,9 +310,7 @@ object Autumn2021Backend_Deploy : BuildType({
             param("jetbrains.buildServer.sshexec.command", """
                 cd /root/autumn-2021-backend-launcher/
                 docker-compose -f docker-compose.dev.yml down --remove-orphans
-                sed 'N;s/build:\n.*//;P;D' tmp/docker-compose.dev.yml > docker-compose.dev.yml || exit 1
-                rm -rf tmp
-                git pull
+                ./update.sh || exit 1
                 ./start.sh || exit 2
                 docker image prune -f
             """.trimIndent())
