@@ -214,6 +214,12 @@ object Autumn2021Backend_BuildAuth : BuildType({
                 commandArgs = "--pull"
             }
         }
+        dockerCommand {
+            name = "Push Auth"
+            commandType = push {
+                namesAndTags = "jastenewname/gym-auth-service"
+            }
+        }
     }
 })
 
