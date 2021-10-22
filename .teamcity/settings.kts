@@ -199,7 +199,7 @@ object Autumn2021Backend_BuildAuth : BuildType({
     name = "Build Auth"
 
     vcs {
-        root(Autumn2021Backend_HttpsGithubComGymHackathonTeamAutumn2021backendRefsHeadsDev)
+        root(Autumn2021Backend_HttpsGithubComGymHackathonTeamAutumn2021backendRefsHeadsDev, "auth/")
     }
 
     steps {
