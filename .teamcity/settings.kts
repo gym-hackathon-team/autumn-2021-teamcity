@@ -142,7 +142,7 @@ object Autumn2021AndroidBaseApp_HttpsGithubComGymHackathonTeamAutumn2021androidB
     useTagsAsBranches = true
     authMethod = password {
         userName = "justrepo"
-        password = "credentialsJSON:e5be275e-39f4-4c97-a20e-1683b6d3176b"
+        password = "credentialsJSON:35ba3038-a703-4868-8686-ae79bf7a149c"
     }
 })
 
