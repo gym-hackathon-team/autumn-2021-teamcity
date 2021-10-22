@@ -197,6 +197,10 @@ object Autumn2021Backend_BuildAdmin : BuildType({
 
 object Autumn2021Backend_BuildAuth : BuildType({
     name = "Build Auth"
+
+    vcs {
+        root(Autumn2021Backend_HttpsGithubComGymHackathonTeamAutumn2021backendRefsHeadsDev)
+    }
 })
 
 object Autumn2021Backend_BuildBff : BuildType({
