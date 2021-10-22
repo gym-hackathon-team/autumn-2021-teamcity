@@ -274,7 +274,7 @@ object Autumn2021Backend_Deploy : BuildType({
     maxRunningBuilds = 1
 
     vcs {
-        root(Autumn2021Backend_HttpsGithubComGymHackathonTeamAutumn2021backendRefsHeadsDev, "docker-compose.dev.yml")
+        root(Autumn2021Backend_HttpsGithubComGymHackathonTeamAutumn2021backendRefsHeadsDev, "docker-compose.dev.yml", ".env.example")
     }
 
     steps {
