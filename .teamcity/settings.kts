@@ -442,11 +442,15 @@ object Autumn2021Backend_Deploy : BuildType({
     }
 
     dependencies {
+        snapshot(Autumn2021Backend_BuildAccount) {
+        }
         snapshot(Autumn2021Backend_BuildAuth) {
             onDependencyFailure = FailureAction.CANCEL
         }
         snapshot(Autumn2021Backend_BuildBff) {
             onDependencyFailure = FailureAction.CANCEL
+        }
+        snapshot(Autumn2021Backend_BuildOrganization) {
         }
         snapshot(Autumn2021Backend_BuildRecognizer) {
         }
