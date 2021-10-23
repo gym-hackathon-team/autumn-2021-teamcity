@@ -165,7 +165,7 @@ object Autumn2021Backend_BuildAccount : BuildType({
     name = "Build Account"
 
     vcs {
-        root(Autumn2021Backend_HttpsGithubComGymHackathonTeamAutumn2021backendRefsHeadsDev)
+        root(Autumn2021Backend_HttpsGithubComGymHackathonTeamAutumn2021backendRefsHeadsDev, "account/")
     }
 
     steps {
