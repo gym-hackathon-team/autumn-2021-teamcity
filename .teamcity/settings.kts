@@ -258,6 +258,14 @@ object Autumn2021Backend_BuildOrganization : BuildType({
             }
         }
     }
+
+    features {
+        dockerSupport {
+            loginToRegistry = on {
+                dockerRegistryId = "PROJECT_EXT_2"
+            }
+        }
+    }
 })
 
 object Autumn2021Backend_BuildRecognizer : BuildType({
