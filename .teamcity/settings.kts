@@ -250,6 +250,12 @@ object Autumn2021Backend_BuildRecognizer : BuildType({
                 commandArgs = "--pull"
             }
         }
+        dockerCommand {
+            name = "Push Recognizer"
+            commandType = push {
+                namesAndTags = "jastenewname/gym-recognizer-service"
+            }
+        }
     }
 })
 
