@@ -158,6 +158,11 @@ object Autumn2021Backend : Project({
     buildType(Autumn2021Backend_BuildOrganization)
     buildType(Autumn2021Backend_BuildAuth)
     buildType(Autumn2021Backend_BuildRecognizer)
+    buildType(Autumn2021Backend_BuildAccount)
+})
+
+object Autumn2021Backend_BuildAccount : BuildType({
+    name = "Build Account"
 })
 
 object Autumn2021Backend_BuildAuth : BuildType({
