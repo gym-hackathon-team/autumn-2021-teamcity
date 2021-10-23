@@ -233,6 +233,10 @@ object Autumn2021Backend_BuildBff : BuildType({
 
 object Autumn2021Backend_BuildRecognizer : BuildType({
     name = "Build Recognizer"
+
+    vcs {
+        root(Autumn2021Backend_HttpsGithubComGymHackathonTeamAutumn2021backendRefsHeadsDev)
+    }
 })
 
 object Autumn2021Backend_BuildUser : BuildType({
