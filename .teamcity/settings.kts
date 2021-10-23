@@ -241,16 +241,6 @@ object Autumn2021Backend_BuildOrganization : BuildType({
 
     steps {
         dockerCommand {
-            commandType = build {
-                source = file {
-                    path = "organization/Dockerfile"
-                }
-                contextDir = "organization"
-                namesAndTags = "organization"
-                commandArgs = "--pull"
-            }
-        }
-        dockerCommand {
             name = "Build Organization"
             commandType = build {
                 source = file {
