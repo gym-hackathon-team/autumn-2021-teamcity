@@ -235,7 +235,7 @@ object Autumn2021Backend_BuildRecognizer : BuildType({
     name = "Build Recognizer"
 
     vcs {
-        root(Autumn2021Backend_HttpsGithubComGymHackathonTeamAutumn2021backendRefsHeadsDev)
+        root(Autumn2021Backend_HttpsGithubComGymHackathonTeamAutumn2021backendRefsHeadsDev, "recognizer/")
     }
 
     steps {
