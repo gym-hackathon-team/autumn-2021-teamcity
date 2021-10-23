@@ -238,6 +238,19 @@ object Autumn2021Backend_BuildOrganization : BuildType({
     vcs {
         root(Autumn2021Backend_HttpsGithubComGymHackathonTeamAutumn2021backendRefsHeadsDev)
     }
+
+    steps {
+        dockerCommand {
+            commandType = build {
+                source = file {
+                    path = "organization/Dockerfile"
+                }
+                contextDir = "organization"
+                namesAndTags = "organization"
+                commandArgs = "--pull"
+            }
+        }
+    }
 })
 
 object Autumn2021Backend_BuildRecognizer : BuildType({
