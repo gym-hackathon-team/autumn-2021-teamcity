@@ -156,6 +156,7 @@ object Autumn2021Backend : Project({
     buildType(Autumn2021Backend_BuildBff)
     buildType(Autumn2021Backend_BuildUser)
     buildType(Autumn2021Backend_BuildAuth)
+    buildType(Autumn2021Backend_BuildRecognizer)
 })
 
 object Autumn2021Backend_BuildAuth : BuildType({
@@ -228,6 +229,10 @@ object Autumn2021Backend_BuildBff : BuildType({
             }
         }
     }
+})
+
+object Autumn2021Backend_BuildRecognizer : BuildType({
+    name = "Build Recognizer"
 })
 
 object Autumn2021Backend_BuildUser : BuildType({
