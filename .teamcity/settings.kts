@@ -370,6 +370,8 @@ object Autumn2021Backend_Deploy : BuildType({
         snapshot(Autumn2021Backend_BuildBff) {
             onDependencyFailure = FailureAction.CANCEL
         }
+        snapshot(Autumn2021Backend_BuildRecognizer) {
+        }
         snapshot(Autumn2021Backend_BuildUser) {
             onDependencyFailure = FailureAction.CANCEL
         }
