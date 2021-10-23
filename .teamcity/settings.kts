@@ -180,6 +180,12 @@ object Autumn2021Backend_BuildAccount : BuildType({
                 commandArgs = "--pull"
             }
         }
+        dockerCommand {
+            name = "Push Account"
+            commandType = push {
+                namesAndTags = "jastenewname/gym-account-service"
+            }
+        }
     }
 })
 
