@@ -273,7 +273,7 @@ object Autumn2021Backend_BuildOrganization : BuildType({
     name = "Build Organization"
 
     vcs {
-        root(Autumn2021Backend_HttpsGithubComGymHackathonTeamAutumn2021backendRefsHeadsDev)
+        root(Autumn2021Backend_HttpsGithubComGymHackathonTeamAutumn2021backendRefsHeadsDev, "organization/")
     }
 
     steps {
