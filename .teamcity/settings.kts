@@ -237,6 +237,18 @@ object Autumn2021Backend_BuildRecognizer : BuildType({
     vcs {
         root(Autumn2021Backend_HttpsGithubComGymHackathonTeamAutumn2021backendRefsHeadsDev)
     }
+
+    steps {
+        dockerCommand {
+            commandType = build {
+                source = file {
+                    path = "recognizer/Dockerfile"
+                }
+                contextDir = "recognizer"
+                commandArgs = "--pull"
+            }
+        }
+    }
 })
 
 object Autumn2021Backend_BuildUser : BuildType({
