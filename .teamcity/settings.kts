@@ -348,6 +348,10 @@ object Autumn2021Backend_Deploy : BuildType({
                 cd /root/autumn-2021-backend-launcher/
                 docker-compose -f docker-compose.dev.yml down --remove-orphans
                 ./update.sh || exit 1
+                docker pull jastenewname/gym-bff-service
+                docker pull jastenewname/gym-user-service
+                docker pull jastenewname/gym-auth-service
+                docker pull jastenewname/gym-recognizer-service
                 ./start.sh || exit 2
                 docker image prune -f
             """.trimIndent())
