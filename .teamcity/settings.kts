@@ -251,6 +251,12 @@ object Autumn2021Backend_BuildOrganization : BuildType({
                 commandArgs = "--pull"
             }
         }
+        dockerCommand {
+            name = "Push Organization"
+            commandType = push {
+                namesAndTags = "jastenewname/gym-organization-service"
+            }
+        }
     }
 })
 
