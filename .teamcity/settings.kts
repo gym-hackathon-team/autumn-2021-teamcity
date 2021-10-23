@@ -426,6 +426,8 @@ object Autumn2021Backend_Deploy : BuildType({
                 docker pull jastenewname/gym-user-service
                 docker pull jastenewname/gym-auth-service
                 docker pull jastenewname/gym-recognizer-service
+                docker pull jastenewname/gym-account-service
+                docker pull jastenewname/gym-organization-service
                 ./start.sh || exit 2
                 docker image prune -f
             """.trimIndent())
