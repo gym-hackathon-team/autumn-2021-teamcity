@@ -167,6 +167,20 @@ object Autumn2021Backend_BuildAccount : BuildType({
     vcs {
         root(Autumn2021Backend_HttpsGithubComGymHackathonTeamAutumn2021backendRefsHeadsDev)
     }
+
+    steps {
+        dockerCommand {
+            name = "Build Account"
+            commandType = build {
+                source = file {
+                    path = "account/Dockerfile"
+                }
+                contextDir = "account"
+                namesAndTags = "jastenewname/gym-account-service"
+                commandArgs = "--pull"
+            }
+        }
+    }
 })
 
 object Autumn2021Backend_BuildAuth : BuildType({
