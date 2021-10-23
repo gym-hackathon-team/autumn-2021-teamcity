@@ -240,11 +240,13 @@ object Autumn2021Backend_BuildRecognizer : BuildType({
 
     steps {
         dockerCommand {
+            name = "Build Recognizer"
             commandType = build {
                 source = file {
                     path = "recognizer/Dockerfile"
                 }
                 contextDir = "recognizer"
+                namesAndTags = "jastenewname/gym-recognizer-service"
                 commandArgs = "--pull"
             }
         }
